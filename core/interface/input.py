@@ -1,3 +1,6 @@
+from core.expression import Expression
+
+
 # возвращает логическое выражение введенное с клавиатуры в верхнем регистре без пробелов
 def input_expression():
     print("Please input logical expression\n",
@@ -16,3 +19,16 @@ def input_values(variables) -> dict:
         print("Введите значение переменной", key)
         variables[key] = int(input())
     return variables
+
+
+def input_messages_consequence():
+    print("Введите количество посылок")
+    n_messages = int(input())
+    messages = []
+    for _ in range(n_messages):
+        print("Введите посылку")
+        message = Expression(str(input()).upper().replace(' ', ''))
+        messages.append(message)
+    print("Введите следствие")
+    consequence = Expression(input_expression())
+    return [messages, consequence]

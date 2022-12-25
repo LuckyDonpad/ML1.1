@@ -10,3 +10,16 @@ def output_table(table: list[list], variables: dict):
             print(value, end=" ")
         print(result)
     print("\n")
+
+
+def output_all_premisses(data: list):
+    sknf = data[0]
+    additional_parts = data[1]
+    for i in range(2 ** len(additional_parts)):
+        output = sknf
+        variant = bin(i)[2::]
+        variant = variant[::-1]
+        for j in range(len(variant)):
+            if variant[j] == "1":
+                output += additional_parts[j]
+        print(output)
